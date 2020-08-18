@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Toxic Comment Classification</title>
+</head>
+
+<body>
+  <style>
+    body{
+  font-family: arial; 
+}
+
+.wrapper{
+  width: 800px;
+  margin: 0 auto;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmd{
+  position: relative;
+  display: block;
+  
+  height: 300px;
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  overflow: hidden;
+  
+  box-shadow: 0px 8px 18px #4b1d3f;
+}
+.title-bar{
+  /* 1 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* 2 */
+  width: 100%;
+  height: 40px;
+  /* 3 */
+  display: block;
+  color: #FFFFFF;
+  line-height: 40px;
+  font-weight: 600;
+  background-color: #242424;
+  text-align: center;
+}
+
+.tool-bar{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #242424;
+}
+
+.tool-bar ul{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.tool-bar ul li{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.tool-bar ul li a{
+  padding: 0px 6px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.tool-bar ul li a:hover{
+  text-decoration: underline;
+}
+
+.textarea{
+  position: relative;
+  top: 70px;
+  padding: 12px;
+  
+  resize: none;
+  width: 100%;
+  height: calc(100% - 70px);
+  background-color: #4b1d3f;
+  border: none;
+  color: #FFFFFF;
+  margin: 0px;
+  font-size: 1.1rem;
+}
+.button {
+  background-color: #242424;
+  color: white;
+  border: 2px solid black;
+  border-radius: 100px;
+  width: 200px;
+  margin: 0 auto;
+  vertical-align: center;
+}
+.button:hover{
+  background-color: #919191;
+  color: #242424;
+  border: 2px solid #242424;
+
+}
+
+  </style>
+
+  <div style="width: 100%; text-align: center; margin-bottom: 30px;">
+    <h2>Toxic Comment Classification</h2>
+    <i>Made by Krishnan Navadia</i>
+  </div>
+
+  <section class="section">
+    
+   <form  id="submit-form" action="/predict" method="POST" target="result" onsubmit="this.submit(); this.reset(); return false;">
+<div class="wrapper">
+  <div class="cmd">
+    <div class="title-bar">type comment: ~</div>
+    <div class="tool-bar">
+    </div>
+    <textarea class="textarea" onkeyup="textCounter(this,'counter',280);" id="message" name="comment" rows=6 cols=50 maxlength="280" required autofocus placeholder="Type something here..."></textarea>
+  </div>
+  <span style="margin-top: 30px; margin-left: 60px">
+      <div class="Bcontainer"><button type="submit" class="button">Predict</button></div>
+  </span>
+    </div>
+
+</form>
+  </section>
+<div style="width: 100%">
+  <section class="section" style="margin-top:20px; display: flex; flex: 1; justify-content: center;">      
+      <span style='border: 2px solid #242424;'>
+        <iframe name="result" scrolling="no" frameborder="0" width=400; height=auto; overflow: hidden; ></iframe>
+      </span>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
